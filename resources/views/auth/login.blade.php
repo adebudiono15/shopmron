@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>Login | Hijab Unaisah</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('adminassets') }}/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="{{ asset('adminassets') }}/assets/vendors/css/vendor.bundle.base.css">
@@ -25,14 +25,12 @@
           <div class="row flex-grow">
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left p-5">
-                <div class="brand-logo">
-                  <img src="{{ asset('adminassets') }}/assets/images/logo.svg">
-                </div>
                 <h4>Halo! Selamat Datang</h4>
                 <h6 class="font-weight-light">Silahkan Login Untuk Melanjutkan.</h6>
                 <form class="pt-3" method="POST" action="{{ route('login') }}">
                   @csrf
                   <div class="form-group">
+                    <label>Email</label>
                   <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                     @error('email')
@@ -42,6 +40,7 @@
                     @enderror
                   </div>
                   <div class="form-group">
+                    <label>Password</label>
                   <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                     @error('password')

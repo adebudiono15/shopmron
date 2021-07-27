@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Hijab Uni Aisah &mdash; Toko Hijab Berkualitas </title>
+    <title>Hijab Unaisah &mdash; Toko Hijab Berkualitas </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -34,8 +34,7 @@
                                         href="{{ route('home') }}">Beranda</a></li>
                                 <li class="{{ Request::path() === 'produk' ? '' : '' }}"><a
                                         href="{{ route('user.produk') }}">Produk</a></li>
-                                <li class="{{ Request::path() === 'kontak' ? '' : '' }}"><a
-                                        href="{{ route('kontak') }}">Kontak</a></li>
+                             
                                 @if (Route::has('login'))
                                     @auth
                                         <li>
@@ -161,22 +160,10 @@
                         <div class="block-5 mb-5">
                             <h3 class="footer-heading mb-4">Contact Info</h3>
                             <ul class="list-unstyled">
-                                <li class="address">Jl. Camar XXIV Blok AP No. 29A Bintaro Sektor 3, Pondok Betung,
-                                    Pondok Aren, Pd. Betung, Kec. Pd. Aren, Kota Tangerang Selatan, Banten 15221</li>
-                                <li class="phone"><a href="tel://23923929210">+62857-1082-0730</a></li>
-                                <li class="email">Aksesku@gmail.com</li>
+                                <li class="address">Jl. Hegarmanah IV No.47, RT.01/RW.08, Gunungbatu, Kec. Bogor Bar., Kota Bogor, Jawa Barat 16118</li>
+                                <li class="phone"><a href="tel://23923929210">+62812-9151-1973</a></li>
+                                <li class="email">admin@instantama.com</li>
                             </ul>
-                        </div>
-
-                        <div class="block-7">
-                            <form action="#" method="post">
-                                <label for="email_subscribe" class="footer-heading">Subscribe</label>
-                                <div class="form-group">
-                                    <input type="text" class="form-control py-4" id="email_subscribe"
-                                        placeholder="Email">
-                                    <input type="submit" class="btn btn-sm btn-primary" value="Send">
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -189,8 +176,7 @@
                             <script>
                                 document.write(new Date().getFullYear());
 
-                            </script> All rights reserved | This template is made with <i class="icon-heart"
-                                aria-hidden="true"></i> by AKSES KOMUNIKA UTAMA
+                            </script> All rights reserved Hijab Unaisah
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
