@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 02 Jul 2021 pada 12.06
+-- Waktu pembuatan: 27 Jul 2021 pada 14.59
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -41,7 +41,9 @@ CREATE TABLE `alamat` (
 --
 
 INSERT INTO `alamat` (`id`, `cities_id`, `detail`, `user_id`, `created_at`, `updated_at`) VALUES
-(10, 79, 'Jl. Aria Surialaga No.50e, RT 03 RW 01, RT.03/RW.01, Kp. Parung Jambu, Pasir Jaya, West Bogor, Bogor City, West Java 16115', 13, '2021-03-16 00:53:14', '2021-03-16 00:53:14');
+(10, 79, 'Jl. Aria Surialaga No.50e, RT 03 RW 01, RT.03/RW.01, Kp. Parung Jambu, Pasir Jaya, West Bogor, Bogor City, West Java 16115', 13, '2021-03-16 00:53:14', '2021-03-16 00:53:14'),
+(11, 93, 'Jl. Raya Bukittinggi - Payakumbuh, Benteng Ps. Atas, Kec. Guguk Panjang, Kota Bukittinggi, Sumatera Barat 26136', 14, '2021-07-27 04:57:00', '2021-07-27 04:57:00'),
+(12, 108, 'smp 12 xxx', 15, '2021-07-27 05:21:10', '2021-07-27 05:21:43');
 
 -- --------------------------------------------------------
 
@@ -62,7 +64,7 @@ CREATE TABLE `alamat_toko` (
 --
 
 INSERT INTO `alamat_toko` (`id`, `city_id`, `detail`, `created_at`, `updated_at`) VALUES
-(1, 79, 'Jl. Aria Surialaga No.50e, RT 03 RW 01, RT.03/RW.01, Kp. Parung Jambu, Pasir Jaya, West Bogor, Bogor City, West Java 16115', NULL, NULL);
+(1, 79, 'Jl. Hegarmanah IV No.47, RT.01/RW.08, Gunungbatu, Kec. Bogor Bar., Kota Bogor, Jawa Barat 16118', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -82,8 +84,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(10, 'Router', '2021-03-16 02:41:59', '2021-03-16 02:41:59'),
-(11, 'ADSL', '2021-03-16 05:24:08', '2021-03-16 05:24:08');
+(12, 'Syar\'i', '2021-07-27 04:42:42', '2021-07-27 04:42:42'),
+(13, 'Muslimah', '2021-07-27 04:43:09', '2021-07-27 04:43:09');
 
 -- --------------------------------------------------------
 
@@ -652,7 +654,12 @@ CREATE TABLE `detail_order` (
 INSERT INTO `detail_order` (`id`, `order_id`, `product_id`, `qty`, `created_at`, `updated_at`) VALUES
 (21, 29, 9, 2, '2020-03-28 05:37:40', '2020-03-28 05:37:40'),
 (22, 30, 15, 1, '2020-04-27 09:09:01', '2020-04-27 09:09:01'),
-(23, 31, 38, 1, '2021-03-16 00:54:59', '2021-03-16 00:54:59');
+(23, 31, 38, 1, '2021-03-16 00:54:59', '2021-03-16 00:54:59'),
+(24, 32, 41, 1, '2021-07-27 04:59:18', '2021-07-27 04:59:18'),
+(25, 33, 42, 2, '2021-07-27 05:06:03', '2021-07-27 05:06:03'),
+(26, 34, 41, 2, '2021-07-27 05:11:34', '2021-07-27 05:11:34'),
+(27, 35, 41, 2, '2021-07-27 05:27:48', '2021-07-27 05:27:48'),
+(28, 35, 42, 3, '2021-07-27 05:27:48', '2021-07-27 05:27:48');
 
 -- --------------------------------------------------------
 
@@ -750,8 +757,18 @@ CREATE TABLE `order` (
   `biaya_cod` int(11) NOT NULL,
   `no_hp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `bukti_pembayaran` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pesan` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `pesan` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `order`
+--
+
+INSERT INTO `order` (`id`, `invoice`, `user_id`, `subtotal`, `no_resi`, `status_order_id`, `metode_pembayaran`, `ongkir`, `created_at`, `updated_at`, `biaya_cod`, `no_hp`, `bukti_pembayaran`, `pesan`) VALUES
+(32, 'ALV202107271157', 14, 143000, 'REsicok', 5, 'trf', 63000, '2021-07-27 04:59:18', '2021-07-27 05:02:56', 0, '083811122233344', 'buktibayar/CH1afzJ7lHzgmtwbCEPxM50GVBGP7kQBCUX32zbW.jpg', 'Anter sampe rumah ya bang... Yakali di anyutin xixixi'),
+(33, 'ALV202107271205', 14, 133000, 'c', 5, 'trf', 63000, '2021-07-27 05:06:03', '2021-07-27 05:09:32', 0, '3333333333', 'buktibayar/tIZJmXa6gkAQSNXXEdd5EnZ82tkgs3oTUiuwnBXZ.jpg', 'sssss'),
+(34, 'ALV202107271210', 14, 223000, 'asgxvgs', 5, 'trf', 63000, '2021-07-27 05:11:34', '2021-07-27 05:17:10', 0, '12345', 'buktibayar/EEYMWhc9gI0UNwJ03k84KT1Pcr2eQMy4UHINjDu2.jpg', 'hahahaha'),
+(35, 'ALV202107271227', 15, 349000, 'syx', 5, 'trf', 84000, '2021-07-27 05:27:48', '2021-07-27 05:30:30', 0, '123456', 'buktibayar/NIT0owj5hJcKLE5zEHCOflqscs7HOvJKEvBU2udw.jpg', 'tolong cepet');
 
 -- --------------------------------------------------------
 
@@ -789,8 +806,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `image`, `price`, `weigth`, `categories_id`, `created_at`, `updated_at`, `stok`) VALUES
-(39, 'TP-Link Archer VR400 AC1200', 'AC1200 Wireless VDSL/ADSL Modem Router\r\nArcher VR400\r\nFeatures\r\nSpeedy Wi-Fi – Superb wireless experience with 300Mbps (2.4GHz) + 867Mbps (5GHz) dual band Wi-Fi connections\r\nSuperior Range – Three fixed antennas provide stable wireless connections and optimal coverage\r\nVersatile Connectivity – Fully compatible with the VDSL2/ADSL2+/ADSL2/ADSL standards, as well as fiber, cable and 3G/4G Internet services\r\nBeamforming Technology – Improves wireless range and performance at 5GHz band\r\nUSB Port – Supports storage and print service sharing, FTP and media servers as well as 3G/4G dongle\r\nTether App – TP-LINK Tether provides the easiest way to access and manage the router on your iOS and Android devices\r\nSuperfast Wi-Fi - Up to 1.2Gbps\r\nThe Archer VR400 unlocks the full potential of your internet connection by providing combined dual band Wi-Fi speeds of up to 1.2Gbps, including 300Mbps on the 2.4GHz band and 867Mbps on the 5GHz band, eliminating lag and buffering from your online experience.\r\n\r\nTwo dedicated Wi-Fi networks support more devices and reduce wireless interference to create stable connections.\r\n\r\nSuperfast VDSL Broadband\r\nThe latest VDSL2 technology allows the Archer VR400 to deliver impressive VDSL broadband speeds of up to 100Mbps, which is almost five times faster than ADSL2+. The Archer VR400 serves as a DSL modem and wireless router, combining two devices in one. The integrated DSL port supports all standard DSL connections, including VDSL2, ADSL2+, ADSL2, and ADSL.\r\n\r\nVersatile Backup Connectivity\r\nWith multiple inputs, the Archer VR400 provides you with a variety of options when connecting to the Internet. As a backup, the EWAN port allows the Archer VR400 to accept connections from cable and fiber modems via Ethernet cable. Additionally, the USB port supports 3G/4G dongle connections.\r\n\r\nSuperior Range and Stability\r\nThree high-performance external antennas help the Archer VR400 create an expansive home network. Advanced Beamforming technology* automatically locates wireless devices and forms targeted, highly efficient wireless connections.\r\n\r\n*Archer VR400 only supports Beamforming Technology at 5GHz band.\r\n\r\nUSB Ports\r\nPrinter\r\nMusic\r\nPhotos\r\nVideo\r\nGigabit Ethernet Ports\r\n4K HD TV\r\nDesktop\r\nNAS\r\nGame Console\r\nBlazing Fast Wired Performance\r\nTo help your wired devices achieve peak performance, the router’s Gigabit Ethernet ports operate 10x faster than standard Ethernet. Connecting an external drive to the USB 2.0 port allows you to share files, photos, music, and video with any device on the network.\r\n\r\nEasy Setup and Use\r\nSet up the Archer VR400 in minutes thanks to its intuitive web interface and the powerful Tether app. Tether also lets you manage its network settings from any Android or iOS device, including parental controls and media sharing.\r\n\r\nGuest Network\r\nProvide visitors with Wi-Fi access separate from your main network\r\n\r\nParental Controls\r\nManage when and how connected devices can access the Internet\r\n\r\nVPN & PPTP VPN Server\r\nEnable a secure connection between your private networks and the internet\r\n\r\n* Maximum wireless signal rates are the physical rates derived from IEEE Standard 802.11 specifications. Range, coverage, and the maximum number of connected devices are based on test results under normal usage conditions. Actual wireless data throughput, wireless coverage, and number of connected devices are not guaranteed and will vary as a result of 1) environmental factors, including building materials, physical objects, and obstacles, 2) network conditions, including local interference, volume and density of traffic, product location, network complexity, and network overhead, and 3) client limitations, including rated performance, location, connection quality, and client condition.', 'imageproduct/Hp1Z3OGgkbmNg7g2qvRSX9SmhzTgMrkN6lQrxpsN.jpg', 500000, 1, 10, '2021-03-16 05:21:23', '2021-03-16 05:21:23', 30),
-(40, 'Ikusi MPP-102 Passive multiplexer', 'Passive telephone dispatcher 1 input 8 outputs for basic telephony. (Input 1 RJ45 Cat6 female connector, Output 8 RJ45 Cat6 female connectors)\r\n\r\nCharacteristics\r\nMaterial of construction ABS - UL 94V-0\r\nIncludes Cat6 UTP LSZH patch cord with RJ45 connector.\r\nSuitable for ICT.\r\n568A and 568B connections.\r\nIt behaves like a point-to-point (not crossover) adapter.\r\nThe patch cord is connectorized at both ends to be able to disconnect it from the multiplexer.\r\nIncludes fixing screws to wood panel.', 'imageproduct/pzDDszszRTQ6dHr7wnkFdv4rc67AUgXwMipfNLVa.jpg', 350000, 1, 11, '2021-03-16 05:25:18', '2021-03-16 05:25:47', 20);
+(41, 'Phasmina', 'Bahan terbuat dari kulit lembu, makanya mahal xixixixi', 'imageproduct/NpfQnwb2Ui7RR0txfl1vqh4pXMZAlpgRe8Nr4zdt.jpg', 80000, 300, 12, '2021-07-27 04:46:43', '2021-07-27 04:46:43', 19),
+(42, 'JILBAB SEGI 4 SYARI WOLFIS', 'Bahan:Wolfis\r\nUkuran:  Jumbo 150x150\r\nIdr 55k\r\nMinimal 3pcs discon', 'imageproduct/utR3StDwPL5FCMLujrMCbL1OpkS54csByxkXwJnK.jpg', 35000, 300, 12, '2021-07-27 04:53:01', '2021-07-27 05:37:42', 28);
 
 -- --------------------------------------------------------
 
@@ -866,9 +883,8 @@ CREATE TABLE `rekening` (
 --
 
 INSERT INTO `rekening` (`id`, `bank_name`, `atas_nama`, `no_rekening`, `created_at`, `updated_at`) VALUES
-(3, 'BRI SYARIAH', 'SATRIA', '777777777777', '2020-03-22 08:35:31', '2021-03-16 02:33:29'),
-(4, 'BCA', 'SATRIA STIKOM', '111111111111', '2020-03-24 17:22:37', '2021-03-16 02:33:48'),
-(5, 'BNI', 'SAT', '6666666666', '2020-03-24 17:23:12', '2021-03-16 02:33:17');
+(6, 'BRI', 'ImronKUN', '1234567777777', '2021-07-27 04:50:49', '2021-07-27 04:50:49'),
+(7, 'BCA SYARIAH', 'ImronKun', '2222222222', '2021-07-27 04:51:11', '2021-07-27 04:51:11');
 
 -- --------------------------------------------------------
 
@@ -919,7 +935,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'admin@gmail.com', NULL, '$2y$10$w0zdau5OGixYD8sK8g5cU.liOkNiBZh4MWTru5vpUVH0C/h9M4LI6', 'admin', NULL, NULL, NULL),
-(13, 'ade', 'ade@gmail.com', NULL, '$2y$10$.gWBTCdCe9zbZ5S06ypvIu3ZopIvQse0dgdHMChAvGDZixTB4zDGS', 'customer', NULL, '2021-03-16 00:52:22', '2021-03-16 00:52:22');
+(13, 'ade', 'ade@gmail.com', NULL, '$2y$10$.gWBTCdCe9zbZ5S06ypvIu3ZopIvQse0dgdHMChAvGDZixTB4zDGS', 'admin', NULL, '2021-03-16 00:52:22', '2021-03-16 00:52:22'),
+(14, 'budiono', 'b@gmail.com', NULL, '$2y$10$wjM3DemdkDS/sl7ubAo2yunrfKFLTpXAXoI4yEqFuv8pixvWa0kR6', 'customer', NULL, '2021-07-27 04:54:50', '2021-07-27 04:54:50'),
+(15, 'wendy', 'aswan45@gmail.com', NULL, '$2y$10$BLb975q5JJnLWgDQANHph.VuANyB.fnOfQaDv3Y69tBY./Pw/O//q', 'customer', NULL, '2021-07-27 05:19:16', '2021-07-27 05:19:16');
 
 --
 -- Indexes for dumped tables
@@ -1030,7 +1048,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `alamat`
 --
 ALTER TABLE `alamat`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `alamat_toko`
@@ -1042,7 +1060,7 @@ ALTER TABLE `alamat_toko`
 -- AUTO_INCREMENT untuk tabel `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `cities`
@@ -1060,7 +1078,7 @@ ALTER TABLE `couriers`
 -- AUTO_INCREMENT untuk tabel `detail_order`
 --
 ALTER TABLE `detail_order`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
@@ -1072,7 +1090,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
@@ -1084,13 +1102,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT untuk tabel `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT untuk tabel `provinces`
@@ -1102,7 +1120,7 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT untuk tabel `rekening`
 --
 ALTER TABLE `rekening`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `status_order`
@@ -1114,7 +1132,7 @@ ALTER TABLE `status_order`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
